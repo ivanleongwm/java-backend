@@ -15,6 +15,12 @@ public class HelloWorldController {
     //hello-world-bean
     @GetMapping(path="/hello-world-bean")
     public HelloWorldBean HelloWorldBean() {
-        return new HelloWorldBean("Hello World");
+        return new HelloWorldBean("Hello World"); // bean returned from this function is automatically converted to JSON
+    }
+
+    //hello-world/path-variable/in-28-minutes
+    @GetMapping(path="/hello-world/path-variable/{name}")
+    public HelloWorldBean HelloWorldPathVariable(@PathVariable String name) {
+        return new HelloWorldBean(String.format("Hello World %s", name)); // bean returned from this function is automatically converted to JSON
     }
 }
